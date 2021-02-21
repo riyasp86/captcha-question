@@ -1,0 +1,116 @@
+{
+	"info": {
+		"_postman_id": "078d9e8c-4a5f-41b8-9a78-fd304cdc9613",
+		"name": "captcha-question",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "get-question",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:8080/api/v1/question",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"v1",
+						"question"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "validate-answer",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"question\": \"Please sum the numbers 2,2,9\",\n    \"secret\": \"UGxlYXNlIHN1bSB0aGUgbnVtYmVycyAyLDIsOQ==\",\n    \"sum\": 13\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:8080/api/v1/question",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"v1",
+						"question"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "validate-wrong-answer",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"question\": \"Please sum the numbers 2,2,9\",\n    \"secret\": \"UGxlYXNlIHN1bSB0aGUgbnVtYmVycyAyLDIsOQ==\",\n    \"sum\": 18\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:8080/api/v1/question",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"v1",
+						"question"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "validate-question-miss",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"secret\": \"UGxlYXNlIHN1bSB0aGUgbnVtYmVycyA3LDksNw==\",\n    \"sum\": 20\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:8081/api/v1/question",
+					"host": [
+						"localhost"
+					],
+					"port": "8081",
+					"path": [
+						"api",
+						"v1",
+						"question"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
